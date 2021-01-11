@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="formcontainer">
+        <h4 class="text-center">Create Blog</h4>
+<form class="form form-horizontal formst" enctype="multipart/form-data" action="" method="post" name="create task">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <label for="Name"><strong>Blog Name</strong></label>
+        <input type="text" name="blog_name"
+               placeholder="Enter blog name" class="form-control titleinput"
+               value="{{ request.form['blog_name'] }}"></input>
+    </div>
+    <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary subbut">Create</button>
+    </div>
+</form>
+        </div>
+    </div>
+ 
+{% endblock %}

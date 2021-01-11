@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{current_user.username}}</h1>
+    <small class="text-muted">
+          <a class="ml-2" href="{{ url_for('reset_password') }}">Reset Password</a>
+    </small>
+{% endblock %}

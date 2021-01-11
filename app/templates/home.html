@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center">Home</h1>
+
+
+{% for entry in p %}
+<div class="post-preview">
+  <a href="{{ url_for('post', post_id=entry.id) }}">
+    <h2 class="post-title">
+      {{ entry.title }}
+    </h2>
+  </a>
+  <h5>
+    Blog name:{{ entry.blog.blog_name }}
+  </h5>
+  <p class="post-meta">Posted by {{entry.author}} on {{ entry.date.strftime('%d/%m/%Y') }}</p>
+</div>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+{% endfor %}
+
+{% endblock %}

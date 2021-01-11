@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center">Explore</h1>
+
+
+{% for post in posts %}
+<div class="post-preview">
+  <a href="{{ url_for('post', post_id=post.id) }}">
+    <h2 class="post-title">
+    {{post.title }}
+    </h2>
+  </a>
+  <h5>
+    Blog name:{{ post.blog.blog_name }}
+  </h5>
+  <p class="post-meta">Posted by {{post.author}} on {{ post.date.strftime('%d/%m/%Y') }}</p>
+  {% if current_user.has_followed_blog(post.blog) %}
+  <button class="btn btn-primary float-right unfollowButton" blog_id="{{  post.blog.blog_name }}">Unfollow</button>
+  {% else %}
+  <button class="btn btn-primary float-right followButton" blog_id="{{  post.blog.blog_name }}">Follow</button>
+  {% endif %}
+</div>
+<br>
+<br>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+{% endfor %}
+
+{% endblock %}

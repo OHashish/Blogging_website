@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center">My posts</h1>
+
+
+{% for entry in p %}
+<div class="mr-1 mb-1" id ="rem_post{{  entry.id }}">
+  
+    <h2 class="post-title">
+    <a href="{{ url_for('post', post_id=entry.id) }}">
+      {{ entry.title }}
+        </a>
+    </h2>
+
+  <h5>
+    Blog name:{{ entry.blog.blog_name }}
+  </h5>
+  <p class="post-meta">Posted on {{ entry.date.strftime('%d/%m/%Y') }}</p>
+      <button class="btn btn-primary float-right delete_Button" post_id="{{  entry.id }}">Delete</button>
+      <a class="btn btn-secondary float-right mr-1 mb-10" href="{{ url_for('update', post_id=entry.id) }}">Update</a>
+      <br>
+      <br>
+    </div>
+   
+{% endfor %}
+
+
+{% endblock %}
