@@ -41,3 +41,11 @@
 2021-01-11 01:46:26,313:INFO:test deleted a post.
 2021-01-11 01:46:32,794:INFO:test deleted a post.
 2021-01-11 01:55:47,564:INFO:test deleted a post.
+2021-01-15 16:54:10,874:WARNING:An attemp to login has failed .
+2021-01-15 16:54:21,625:WARNING:An attemp to login has failed .
+2021-01-15 16:54:28,824:WARNING:An attemp to login has failed .
+2021-01-15 16:54:34,645:INFO:test just logged in
+2021-01-15 16:56:14,103:INFO:test followed a blog
+2021-01-15 16:56:21,841:INFO:test unfollowed a blog
+2021-01-15 16:57:23,357:INFO:test followed a blog
+2021-01-15 16:57:27,846:INFO:test unfollowed a blog

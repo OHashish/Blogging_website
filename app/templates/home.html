@@ -2,7 +2,9 @@
 {% block content %}
 <h1 class="text-center">Home</h1>
 
-
+{% if not p %}
+<h5 class="text-center no-blogs">You haven't followed any blogs yet.</h5>
+{% endif %}
 {% for entry in p %}
 <div class="post-preview">
   <a href="{{ url_for('post', post_id=entry.id) }}">

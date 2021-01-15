@@ -174,7 +174,6 @@ def home():
 		l=i.posts
 		for pp in l:
 			li.append(pp)
-
 	da=sorted(li,key=lambda post: post.date,reverse=True)
 	return render_template('home.html', title='home', p= da)
 

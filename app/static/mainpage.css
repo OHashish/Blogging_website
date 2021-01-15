@@ -20,3 +20,6 @@ button.followButton.following{
     margin-left: auto;
     margin-right: auto;
  }
+.no-blogs{
+    color:grey;
+}
