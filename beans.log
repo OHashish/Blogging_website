@@ -49,3 +49,19 @@
 2021-01-15 16:56:21,841:INFO:test unfollowed a blog
 2021-01-15 16:57:23,357:INFO:test followed a blog
 2021-01-15 16:57:27,846:INFO:test unfollowed a blog
+<<<<<<< HEAD
+=======
+2021-01-15 17:31:12,591:INFO:test posted to blog named Norse methology
+2021-01-15 20:19:41,820:WARNING:An attemp to login has failed .
+2021-01-15 20:19:54,990:WARNING:An attemp to login has failed .
+2021-01-15 20:20:03,725:WARNING:An attemp to login has failed .
+2021-01-15 20:20:11,427:WARNING:An attemp to login has failed .
+2021-01-15 20:20:19,799:INFO:test just logged in
+2021-01-15 22:26:34,463:INFO:test just logged in
+2021-01-16 01:05:34,495:INFO:test created a new blog
+2021-01-16 01:09:57,187:INFO:test created a new blog
+2021-01-16 01:10:05,020:INFO:test created a new blog
+2021-01-16 01:11:41,151:INFO:test created a new blog
+2021-01-16 01:11:46,925:INFO:test created a new blog
+2021-01-16 01:14:14,240:INFO:test followed a blog
+>>>>>>> 5afa3141bc3ad239c80568011e35ab82e8fddce4

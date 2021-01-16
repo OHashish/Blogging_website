@@ -11,7 +11,7 @@ from flask_uploads  import UploadSet,configure_uploads,IMAGES
 import logging
 import flask_whooshalchemy as wa
 enable_search=True
-WHOOSH_BASE='whoosh'  
+WHOOSH_BASE='whoosh'
 wa.whoosh_index(app,Blog)
 
 logger_I=logging.getLogger(__name__)
@@ -142,11 +142,11 @@ def posted():
 	return render_template('posted.html', title='Posted', p = pos)
 
 @app.route('/search', methods=['GET', 'POST'])
-@login_required		
+@login_required
 def search():
 	blogs=Blog.query.whoosh_search(request.args.get('query')).all()
-	print(blogs)
 	return render_template('view_blogs.html', blogs = blogs)
+
 
 
 
