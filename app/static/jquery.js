@@ -86,3 +86,64 @@ $(document).ready(function() {
     });
 
 });
+
+$(document).ready(function() {
+
+    $('.likeButton').on('click', function() {
+        $button = $(this);
+        var post_id = $(this).attr('post_id');
+
+        req = $.ajax({
+            url : '/like',
+            type : 'POST',
+            data : { id : post_id }
+        });
+
+        req.done(function(data) {
+            if( $button.hasClass('like')){
+          
+                $button.removeClass('like');
+                $button.removeClass('unlike');
+                $button.text('Like');
+            } else {
+                
+                $button.addClass('like');
+                $button.text('Unlike');
+            }
+        });
+    
+
+    });
+
+});
+
+$(document).ready(function() {
+
+    $('.unlikeButton').on('click', function() {
+    
+        $button = $(this);
+        var post_id = $(this).attr('post_id');
+
+        req = $.ajax({
+            url : '/like',
+            type : 'POST',
+            data : { id : post_id }
+        });
+
+        req.done(function(data) {
+            if( $button.hasClass('unlike')){
+          
+                $button.removeClass('unlike');
+                $button.removeClass('like');
+                $button.text('Like');
+            } else {
+                
+                $button.addClass('unlike');
+                $button.text('Unlike');
+            }
+        });
+    
+
+    });
+
+});

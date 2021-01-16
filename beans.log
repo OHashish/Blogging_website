@@ -65,3 +65,55 @@
 2021-01-16 01:11:46,925:INFO:test created a new blog
 2021-01-16 01:14:14,240:INFO:test followed a blog
 >>>>>>> 5afa3141bc3ad239c80568011e35ab82e8fddce4
+2021-01-16 02:18:46,972:WARNING:A failed registeration attempt has occured.
+2021-01-16 02:18:55,590:INFO:An account has been created with username: test
+2021-01-16 02:19:00,983:INFO:test just logged in
+2021-01-16 02:20:42,107:INFO:test created a new blog
+2021-01-16 02:20:48,863:INFO:test posted to blog named ffdd
+2021-01-16 15:04:46,420:WARNING:An attemp to login has failed .
+2021-01-16 15:04:57,804:INFO:test just logged in
+2021-01-16 15:14:54,457:INFO:test followed a blog
+2021-01-16 15:14:57,963:INFO:test unfollowed a blog
+2021-01-16 15:19:09,379:INFO:test posted to blog named ffdd
+2021-01-16 15:22:25,045:INFO:test created a new blog
+2021-01-16 15:22:33,926:INFO:test posted to blog named ffdd
+2021-01-16 15:22:40,626:INFO:test posted to blog named how
+2021-01-16 15:25:40,118:INFO:test created a new blog
+2021-01-16 15:58:47,122:INFO:test created a new blog
+2021-01-16 16:30:48,829:INFO:test logged out.
+2021-01-16 16:30:50,402:WARNING:A failed registeration attempt has occured.
+2021-01-16 16:31:06,710:WARNING:A failed registeration attempt has occured.
+2021-01-16 16:31:22,036:INFO:An account has been created with username: omar
+2021-01-16 16:31:29,556:INFO:omar just logged in
+2021-01-16 16:31:44,396:INFO:omar created a new blog
+2021-01-16 18:03:11,775:INFO:omar created a new blog
+2021-01-16 18:03:31,948:INFO:omar posted to blog named lmao
+2021-01-16 18:03:35,688:INFO:omar deleted a post.
+2021-01-16 18:30:42,811:WARNING:A failed registeration attempt has occured.
+2021-01-16 18:30:50,609:INFO:An account has been created with username: test
+2021-01-16 18:30:58,460:INFO:test just logged in
+2021-01-16 18:31:15,031:INFO:test logged out.
+2021-01-16 18:31:16,606:WARNING:A failed registeration attempt has occured.
+2021-01-16 18:31:32,760:INFO:An account has been created with username: email
+2021-01-16 18:31:37,817:INFO:email just logged in
+2021-01-16 18:31:47,482:INFO:email created a new blog
+2021-01-16 18:31:54,668:INFO:email posted to blog named this is a blog
+2021-01-16 19:12:03,208:INFO:email logged out.
+2021-01-16 19:12:10,694:INFO:email just logged in
+2021-01-16 19:12:16,865:INFO:email logged out.
+2021-01-16 19:12:21,778:INFO:test just logged in
+2021-01-16 19:12:27,781:INFO:test followed a blog
+2021-01-16 19:12:28,814:INFO:test unfollowed a blog
+2021-01-16 19:24:13,064:INFO:test liked a post
+2021-01-16 19:24:35,872:INFO:test liked a post
+2021-01-16 19:25:06,984:INFO:test liked a post
+2021-01-16 19:25:32,553:INFO:test followed a blog
+2021-01-16 19:25:40,879:INFO:test unliked a post
+2021-01-16 19:25:44,636:INFO:test liked a post
+2021-01-16 19:25:45,834:INFO:test unliked a post
+2021-01-16 19:25:46,417:INFO:test liked a post
+2021-01-16 19:25:46,970:INFO:test unliked a post
+2021-01-16 19:25:47,393:INFO:test liked a post
+2021-01-16 19:26:16,128:INFO:test liked a post
+2021-01-16 19:26:19,546:INFO:test unliked a post
+2021-01-16 19:26:22,483:INFO:test liked a post

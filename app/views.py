@@ -3,7 +3,7 @@ from app import app, db, admin,bcrypt
 from .forms import LoginForm , RegisterForm,PostForm,BlogForm,ResetPasswordForm
 from datetime import datetime
 from flask_admin.contrib.sqla import ModelView
-from .models import Posts ,User,Blog,follow_table
+from .models import Posts ,User,Blog,follow_table,likers
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from flask_login import LoginManager,UserMixin,login_user,login_required,logout_user,current_user
@@ -28,10 +28,6 @@ file_handler.setFormatter(formatter)
 
 logger_I.addHandler(file_handler)
 
-
-
-
-
 bootstrap = Bootstrap(app)
 
 
@@ -46,7 +42,7 @@ login_manager.login_view='login'
 
 photos = UploadSet('photos', IMAGES)
 
-app.config['UPLOADED_PHOTOS_DEST'] = 'flask_project/app/static'
+app.config['UPLOADED_PHOTOS_DEST'] = 'app/static'
 configure_uploads(app, photos)
 
 
@@ -97,6 +93,7 @@ def create_blog():
 			db.session.add(p)
 			db.session.commit()
 			logger_I.info(current_user.username + " created a new blog")
+			flash('Blog created.', 'success')
 			return redirect(url_for('post_blog'))
 		logger_I.debug(current_user.username + " failed to create a new blog")
 	return render_template('create_blog.html', form=form)
@@ -106,8 +103,8 @@ def create_blog():
 @app.route('/post/<int:post_id>')
 @login_required
 def post(post_id):
-    post = Posts.query.filter_by(id=post_id).one()
-    return render_template('post_page.html', post=post)
+	post = Posts.query.filter_by(id=post_id).first()
+	return render_template('post_page.html', post=post)
 
 @app.route('/delete_post', methods=['GET', 'POST'])
 @login_required
@@ -144,11 +141,12 @@ def posted():
 @app.route('/search', methods=['GET', 'POST'])
 @login_required
 def search():
-	blogs=Blog.query.whoosh_search(request.args.get('query')).all()
+	blogs=Blog.query.whoosh_search(request.args.get('query')).filter(Blog.user_id != current_user.id).all()
+	if request.args.get('query'):
+		blogs=Blog.query.whoosh_search(request.args.get('query')).filter(Blog.user_id != current_user.id).all()
+		if not blogs:
+			flash('No blogs were found.', 'danger')
 	return render_template('view_blogs.html', blogs = blogs)
-
-
-
 
 @app.route('/follow', methods=['GET', 'POST'])
 @login_required
@@ -167,6 +165,27 @@ def follow():
 	if flag==0:
 		logger_I.info(current_user.username + " followed a blog")
 		clicked_blog.user_followers.append(current_user)
+	db.session.commit()
+
+	return jsonify()
+
+@app.route('/like', methods=['GET', 'POST'])
+@login_required
+def like():
+	flag=0
+	data=request.form['id']
+	like_post=Posts.query.filter_by(id=data).first()
+	posts=current_user.liked_posts
+	for post in posts:
+		if post==like_post:
+			logger_I.info(current_user.username + " unliked a post")
+			like_post.user_likes.remove(current_user)
+			flag=1
+			break
+
+	if flag==0:
+		logger_I.info(current_user.username + " liked a post")
+		like_post.user_likes.append(current_user)
 	db.session.commit()
 
 	return jsonify()

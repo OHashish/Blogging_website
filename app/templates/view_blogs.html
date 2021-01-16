@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">My Blogs</h1>
-<form class="form-inline" method="GET" action="search">
-    <div class="form-group">
-        <label for="query"> Blog Name</label>
-            <input type="text" class="form-control" name="query" id="query">
-    </div>
-    <button type="submit" class="btn btn-primary">Search </button>
+<form  method="GET" action="search">
+    <div class="input-group mb-3" >
+        <input type="text" name="query" id="query" class="form-control" placeholder="Blog Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+      </div>
 </form>
-
-
 {% for blog in blogs %}
 <div class="blog-preview">
         <h5>
           Blog name:{{blog.blog_name }}
+        </h5>
+        <h5>
+          Number of posts:{{blog.posts|length}}
         </h5>
         {% if current_user.has_followed_blog(blog) %}
         <button class="btn btn-primary float-right unfollowButton" blog_id="{{  blog.blog_name }}">Unfollow</button>
