@@ -17,8 +17,8 @@
     
   </body>
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand mr-4" href="/home">Blog</a>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark nav-cutom">
+      <a class="navbar-brand mr-4" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,16 +26,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto nv">
         {% if current_user.is_authenticated %}
-        <li class="nav-item"><a class="nav-link" href="/posted">My posts<span class="sr-only">(current)</span></a></li>
         <li class="nav-item"><a class="nav-link" href="/post_blog">Post<span class="sr-only">(current)</span></a></li>
         <li class="nav-item"><a class="nav-link" href="/create_blog">Create Blog<span class="sr-only">(current)</span></a></li>
         <li class="nav-item"><a class="nav-link" href="/general">Explore<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/search">Search Blog<span class="sr-only">(current)</span></a></li>
         {% endif %}
       </ul>
       <div class="navbar-nav ml-auto nv">
         {% if current_user.is_authenticated %}
-        <li class="nav-item"><a class="nav-link" href="/account">Account<span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a></li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/account">Profile</a>
+            <a class="dropdown-item" href="/posted">My Posts</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </div>
+      
+      
         {% else %}
         <li class="nav-item"><a class="nav-link" href="/signup">Sign up<span class="sr-only">(current)</span></a></li>
         <li class="nav-item"><a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a></li>
@@ -43,6 +53,8 @@
 
       </div>
     </div>
+  
+    
   </ul>
   </nav>
 <div class="container">
