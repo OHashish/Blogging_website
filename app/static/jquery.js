@@ -139,7 +139,7 @@ $(document).ready(function() {
             } else {
                 
                 $button.addClass('unlike');
-                $button.text('Unlike');
+                $button.text('Like');
             }
         });
     
