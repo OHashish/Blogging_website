@@ -11,7 +11,7 @@ from flask_uploads  import UploadSet,configure_uploads,IMAGES
 import logging
 import flask_whooshalchemy as wa
 enable_search=True
-WHOOSH_BASE='whoosh'  
+WHOOSH_BASE='whoosh'
 wa.whoosh_index(app,Blog)
 
 logger_I=logging.getLogger(__name__)
@@ -46,7 +46,7 @@ login_manager.login_view='login'
 
 photos = UploadSet('photos', IMAGES)
 
-app.config['UPLOADED_PHOTOS_DEST'] = 'app/static'
+app.config['UPLOADED_PHOTOS_DEST'] = 'flask_project/app/static'
 configure_uploads(app, photos)
 
 
@@ -85,7 +85,7 @@ def post_blog():
 
 
 @app.route('/create_blog', methods=['GET', 'POST'])
-@login_required	
+@login_required
 def create_blog():
 	form= BlogForm()
 	name = form.blog_name.data
@@ -104,13 +104,13 @@ def create_blog():
 
 
 @app.route('/post/<int:post_id>')
-@login_required	
+@login_required
 def post(post_id):
     post = Posts.query.filter_by(id=post_id).one()
     return render_template('post_page.html', post=post)
 
 @app.route('/delete_post', methods=['GET', 'POST'])
-@login_required	
+@login_required
 def delete_post():
 	data=request.form['id']
 	Posts.query.filter_by(id=data).delete()
@@ -136,22 +136,22 @@ def update(post_id):
 	return render_template('update.html', title='Update Post',form=form)
 
 @app.route('/posted', methods=['GET', 'POST'])
-@login_required		
+@login_required
 def posted():
 	pos=Posts.query.order_by(Posts.date.desc()).join(Blog).filter(Blog.user_id == current_user.id).all()
 	return render_template('posted.html', title='Posted', p = pos)
 
 @app.route('/search', methods=['GET', 'POST'])
-@login_required		
+@login_required
 def search():
 	blogs=Blog.query.whoosh_search(request.args.get('query')).all()
-	print(blogs)
 	return render_template('view_blogs.html', blogs = blogs)
 
 
 
+
 @app.route('/follow', methods=['GET', 'POST'])
-@login_required		
+@login_required
 def follow():
 	flag=0
 	data=request.form['id']
@@ -163,7 +163,7 @@ def follow():
 			clicked_blog.user_followers.remove(current_user)
 			flag=1
 			break
-	
+
 	if flag==0:
 		logger_I.info(current_user.username + " followed a blog")
 		clicked_blog.user_followers.append(current_user)
@@ -172,13 +172,13 @@ def follow():
 	return jsonify()
 
 @app.route('/general', methods=['GET', 'POST'])
-@login_required		
+@login_required
 def general():
 	posts=Posts.query.order_by(Posts.date.desc()).join(Blog).filter(Blog.user_id != current_user.id).all()
 	return render_template('general.html', title='General', posts = posts)
 
 @app.route('/home', methods=['GET', 'POST'])
-@login_required		
+@login_required
 def home():
 	f_blog=current_user.followed_blogs
 	blogs = Blog.query.filter(Blog.user_followers.any(id=current_user.id)).all()
