@@ -1,5 +1,11 @@
-from app import db
+from app import db,app
 from flask_login import UserMixin
+from flask import Flask
+import flask_whooshalchemy as wa
+
+
+
+
 
 follow_table = db.Table('followers',
     db.Column('user-id',db.Integer,db.ForeignKey('user.id')),
@@ -17,6 +23,7 @@ class User(UserMixin,db.Model):
           id=blog.id).first() is not None
 
 class Blog(db.Model):
+    __searchable__ = ['id','blog_name']
     id= db.Column(db.Integer, primary_key=True)
     blog_name = db.Column(db.String(100))
     user_id=db.Column(db.Integer,db.ForeignKey('user.id'))

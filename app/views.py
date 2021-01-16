@@ -9,6 +9,10 @@ from flask_wtf import FlaskForm
 from flask_login import LoginManager,UserMixin,login_user,login_required,logout_user,current_user
 from flask_uploads  import UploadSet,configure_uploads,IMAGES
 import logging
+import flask_whooshalchemy as wa
+enable_search=True
+WHOOSH_BASE='whoosh'  
+wa.whoosh_index(app,Blog)
 
 logger_I=logging.getLogger(__name__)
 
@@ -137,6 +141,15 @@ def posted():
 	pos=Posts.query.order_by(Posts.date.desc()).join(Blog).filter(Blog.user_id == current_user.id).all()
 	return render_template('posted.html', title='Posted', p = pos)
 
+@app.route('/search', methods=['GET', 'POST'])
+@login_required		
+def search():
+	blogs=Blog.query.whoosh_search(request.args.get('query')).all()
+	print(blogs)
+	return render_template('view_blogs.html', blogs = blogs)
+
+
+
 @app.route('/follow', methods=['GET', 'POST'])
 @login_required		
 def follow():
@@ -174,6 +187,7 @@ def home():
 		l=i.posts
 		for pp in l:
 			li.append(pp)
+
 	da=sorted(li,key=lambda post: post.date,reverse=True)
 	return render_template('home.html', title='home', p= da)
 
