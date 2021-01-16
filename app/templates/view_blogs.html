@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center">My Blogs</h1>
+<form class="form-inline" method="GET" action="search">
+    <div class="form-group">
+        <label for="query"> Blog Name</label>
+            <input type="text" class="form-control" name="query" id="query">
+    </div>
+    <button type="submit" class="btn btn-primary">Search </button>
+</form>
+
+
+{% for blog in blogs %}
+<div class="blog-preview">
+        <h5>
+          Blog name:{{blog.blog_name }}
+        </h5>
+        {% if current_user.has_followed_blog(blog) %}
+        <button class="btn btn-primary float-right unfollowButton" blog_id="{{  blog.blog_name }}">Unfollow</button>
+        {% else %}
+        <button class="btn btn-primary float-right followButton" blog_id="{{  blog.blog_name }}">Follow</button>
+        {% endif %}
+      </div>
+      <br>
+      <br>
+      <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+   
+{% endfor %}
+
+
+{% endblock %}
