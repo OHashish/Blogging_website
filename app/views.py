@@ -50,9 +50,7 @@ configure_uploads(app, photos)
 def load_user(user_id):
 	return User.query.get(int(user_id))
 
-@app.route('/')
-def index():
-	return render_template('index.html')
+
 
 @app.route('/post_blog', methods=['GET', 'POST'])
 @login_required
@@ -92,7 +90,7 @@ def create_blog():
 			p = Blog(blog_name=name,user=current_user)
 			db.session.add(p)
 			db.session.commit()
-			logger_I.info(current_user.username + " created a new blog")
+			logger_I.info(current_user.username + " created a new blog with name "+p.blog_name)
 			flash('Blog created.', 'success')
 			return redirect(url_for('post_blog'))
 		logger_I.debug(current_user.username + " failed to create a new blog")
@@ -157,13 +155,13 @@ def follow():
 	blogs=current_user.followed_blogs
 	for blog in blogs:
 		if blog==clicked_blog:
-			logger_I.info(current_user.username + " unfollowed a blog")
+			logger_I.info(current_user.username + " unfollowed a blog named "+ clicked_blog.blog_name)
 			clicked_blog.user_followers.remove(current_user)
 			flag=1
 			break
 
 	if flag==0:
-		logger_I.info(current_user.username + " followed a blog")
+		logger_I.info(current_user.username + " followed a blog named "+ clicked_blog.blog_name)
 		clicked_blog.user_followers.append(current_user)
 	db.session.commit()
 
@@ -196,19 +194,23 @@ def general():
 	posts=Posts.query.order_by(Posts.date.desc()).join(Blog).filter(Blog.user_id != current_user.id).all()
 	return render_template('general.html', title='General', posts = posts)
 
+@app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
-@login_required
 def home():
-	f_blog=current_user.followed_blogs
-	blogs = Blog.query.filter(Blog.user_followers.any(id=current_user.id)).all()
-	li=[]
-	for i in blogs:
-		l=i.posts
-		for pp in l:
-			li.append(pp)
+	if not current_user.is_authenticated:
+		redirect('index.html')
+	else:
+		f_blog=current_user.followed_blogs
+		blogs = Blog.query.filter(Blog.user_followers.any(id=current_user.id)).all()
+		li=[]
+		for i in blogs:
+			l=i.posts
+			for pp in l:
+				li.append(pp)
 
-	da=sorted(li,key=lambda post: post.date,reverse=True)
-	return render_template('home.html', title='home', p= da)
+		da=sorted(li,key=lambda post: post.date,reverse=True)
+		return render_template('home.html', title='home', p= da)
+	return render_template('index.html', title='home')
 
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -223,7 +225,7 @@ def login():
 				return redirect(url_for('home'))
 			logger_I.warning(user.username+" failed to login.")
 		flash('Incorrect username or password. Please try again.','danger')
-		logger_I.warning("An attemp to login has failed .")
+		logger_I.warning("An attempt to login has failed .")
 		return redirect(url_for('login'))
 
 
@@ -279,8 +281,6 @@ def account():
 		total_followers=total_followers+blog.user_followers.count()
 		for posts in blog.posts:
 			total_likes=total_likes+posts.user_likes.count()
-		# for posts in blog.posts:
-		# 	print(posts)
 	return render_template('account.html',posts_number=total_posts,total_followers=total_followers,total_likes=total_likes)
 
 @app.route('/logout')

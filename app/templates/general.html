@@ -22,8 +22,8 @@
   <button class="btn btn-primary float-right followButton" blog_id="{{  post.blog.blog_name }}">Follow</button>
   {% endif %}
 </div>
-<h7>
-    Likes:{{ post.user_likes.count()}}
+<h7 class="like-container">
+  <image src="{{url_for('static',filename = 'like.png')}}" class="mb-1 like_image"> :{{ post.user_likes.count()}}
   </h7>
 <br>
 <br>

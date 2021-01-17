@@ -1,31 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
     <h4 class="text-center">Welcome:{{current_user.username}}</h4>
+    <br>
     <large class="text-muted">
           <a class="ml-2" href="{{ url_for('reset_password') }}">Reset Password</a>
     </large>
     <br>
-    <large >
-            Number of blogs:{{current_user.blogs|length}}
-      </large>
-      <br>
-      <large >
-            Number of posts:{{posts_number}}
-      </large>
-      <br>
-      <large >
-            Number of followers on all blogs:{{total_followers}}
-      </large>
-      <br>
-      <large >
-            Number of followed blogs:{{current_user.followed_blogs.count()}}
-      </large>
-      <br>
-      <large >
-            Number of likes on your posts:{{total_likes}}
-      </large>
-      <br>
-      <large >
-            Number of posts you liked:{{current_user.liked_posts.count()}}
-      </large>
+    <br>
+      <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Statistics</th>
+                      <th scope="col">#</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"> Blogs Created</th>
+                      <td>{{current_user.blogs|length}}</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">Number of posts</th>
+                      <td>{{posts_number}}</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row"> Followers</th>
+                      <td>{{total_followers}}</td>
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">Following</th>
+                      <td>{{current_user.followed_blogs.count()}}</td>
+                      
+                    </tr>
+                    <tr>
+                              <th scope="row">Total likes</th>
+                              <td>{{total_likes}}</td>
+                              
+                  </tr>
+                        <tr>
+                              <th scope="row">Posts you liked</th>
+                              <td>{{current_user.liked_posts.count()}}</td>
+                                    
+                        </tr>
+                  </tbody>
+                </table>
 {% endblock %}

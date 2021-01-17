@@ -15,7 +15,11 @@
   <h5>
     Blog name:{{ entry.blog.blog_name }}
   </h5>
+  
   <p class="post-meta">Posted on {{ entry.date.strftime('%d/%m/%Y') }}</p>
+  <h7 class="like-container">
+    <image src="{{url_for('static',filename = 'like.png')}}" class="mb-1 like_image"> :{{ entry.user_likes.count()}}
+    </h7>
       <button class="btn btn-primary float-right delete_Button" post_id="{{  entry.id }}">Delete</button>
       <a class="btn btn-secondary float-right mr-1 mb-10" href="{{ url_for('update', post_id=entry.id) }}">Update</a>
       <br>
