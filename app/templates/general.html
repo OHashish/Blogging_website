@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-center">Explore</h1>
+<h4 class="text-center">Explore</h4>
 
 
 {% for post in posts %}
 <div class="post-preview">
-  <a href="{{ url_for('post', post_id=post.id) }}">
+  
     <h2 class="post-title">
+        <a href="{{ url_for('post', post_id=post.id) }}">
     {{post.title }}
-    </h2>
   </a>
+    </h2>
+  
   <h5>
     Blog name:{{ post.blog.blog_name }}
   </h5>
@@ -20,6 +22,9 @@
   <button class="btn btn-primary float-right followButton" blog_id="{{  post.blog.blog_name }}">Follow</button>
   {% endif %}
 </div>
+<h7>
+    Likes:{{ post.user_likes.count()}}
+  </h7>
 <br>
 <br>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">

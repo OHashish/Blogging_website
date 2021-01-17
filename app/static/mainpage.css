@@ -23,3 +23,29 @@ button.followButton.following{
 .no-blogs{
     color:grey;
 }
+body > div > div.text-center.post-head > h2{
+    font-family:Verdana, sans-serif;
+ }
+ body > div > div.text-center.post-head > p{
+    font-family:Verdana, sans-serif;
+ }
+ body > div > article > div > div > div{
+    font-family:Verdana, sans-serif;
+
+ }
+
+ #dropdownMenuButton{
+     background-color: #343a40;
+ }
+
+ @media (min-width: 576px){
+.navbar-expand-sm .navbar-nav .dropdown-menu {
+    position: absolute;
+    text-align: left;
+}}
+
+@media (max-width: 576px){
+    .navbar-expand-sm .navbar-nav .dropdown-menu {
+        
+        text-align: center;
+    }}

@@ -270,7 +270,18 @@ def reset_password():
 @app.route('/account')
 @login_required
 def account():
-	return render_template('account.html',title="Account")
+	total_posts=0
+	total_followers=0
+	total_likes=0
+	blogs=Blog.query.filter_by(user_id=current_user.id).all()
+	for blog in blogs:
+		total_posts=total_posts+len(blog.posts)
+		total_followers=total_followers+blog.user_followers.count()
+		for posts in blog.posts:
+			total_likes=total_likes+posts.user_likes.count()
+		# for posts in blog.posts:
+		# 	print(posts)
+	return render_template('account.html',posts_number=total_posts,total_followers=total_followers,total_likes=total_likes)
 
 @app.route('/logout')
 @login_required

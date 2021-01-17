@@ -1,7 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>{{current_user.username}}</h1>
-    <small class="text-muted">
+    <h4 class="text-center">Welcome:{{current_user.username}}</h4>
+    <large class="text-muted">
           <a class="ml-2" href="{{ url_for('reset_password') }}">Reset Password</a>
-    </small>
+    </large>
+    <br>
+    <large >
+            Number of blogs:{{current_user.blogs|length}}
+      </large>
+      <br>
+      <large >
+            Number of posts:{{posts_number}}
+      </large>
+      <br>
+      <large >
+            Number of followers on all blogs:{{total_followers}}
+      </large>
+      <br>
+      <large >
+            Number of followed blogs:{{current_user.followed_blogs.count()}}
+      </large>
+      <br>
+      <large >
+            Number of likes on your posts:{{total_likes}}
+      </large>
+      <br>
+      <large >
+            Number of posts you liked:{{current_user.liked_posts.count()}}
+      </large>
 {% endblock %}
