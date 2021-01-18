@@ -31,9 +31,6 @@ logger.addHandler(file_handler)
 bootstrap = Bootstrap(app)
 
 
-admin.add_view(ModelView(Posts,db.session))
-admin.add_view(ModelView(User,db.session))
-admin.add_view(ModelView(Blog,db.session))
 
 
 login_manager=LoginManager()
