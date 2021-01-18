@@ -17,13 +17,13 @@
   </h5>
   <p class="post-meta">Posted by {{post.author}} on {{ post.date.strftime('%d/%m/%Y') }}</p>
   {% if current_user.has_followed_blog(post.blog) %}
-  <button class="btn btn-primary float-right unfollowButton" blog_id="{{  post.blog.blog_name }}">Unfollow</button>
+  <button class="btn btn-primary float-right unfollowButton" blog_id="{{  post.blog.id }}">Unfollow</button>
   {% else %}
-  <button class="btn btn-primary float-right followButton" blog_id="{{  post.blog.blog_name }}">Follow</button>
+  <button class="btn btn-primary float-right followButton" blog_id="{{  post.blog.id }}">Follow</button>
   {% endif %}
 </div>
 <h7 class="like-container">
-  <image src="{{url_for('static',filename = 'like.png')}}" class="mb-1 like_image"> :{{ post.user_likes.count()}}
+  <image src="{{url_for('static',filename = 'like.png')}}" class="mb-1 like_image"> {{ post.user_likes.count()}}
   </h7>
 <br>
 <br>

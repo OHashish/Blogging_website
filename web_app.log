@@ -1,0 +1,78 @@
+2021-01-18 00:53:33,128:WARNING:A failed registeration attempt has occured.
+2021-01-18 00:53:42,915:WARNING:A failed registeration attempt has occured.
+2021-01-18 00:54:05,215:WARNING:A failed registeration attempt has occured.
+2021-01-18 00:54:12,985:INFO:An account has been created with username: test
+2021-01-18 00:54:19,476:WARNING:test failed to login.
+2021-01-18 00:54:19,477:WARNING:An attempt to login has failed .
+2021-01-18 00:54:33,265:WARNING:test failed to login.
+2021-01-18 00:54:33,266:WARNING:An attempt to login has failed .
+2021-01-18 00:54:39,788:INFO:test just logged in
+2021-01-18 00:54:45,505:INFO:test created a new blog with name Science
+2021-01-18 00:54:51,930:INFO:test created a new blog with name Pyhsics
+2021-01-18 00:55:48,474:ERROR:Incorrect Image format
+2021-01-18 00:56:10,008:WARNING:test failed to post to blog
+2021-01-18 00:56:18,899:INFO:test posted to blog named Science
+2021-01-18 00:56:45,393:INFO:test posted to blog named Pyhsics
+2021-01-18 00:58:19,390:INFO:test failed to change his password.
+2021-01-18 00:58:30,298:INFO:test has changed password.
+2021-01-18 00:58:35,901:INFO:test logged out.
+2021-01-18 00:58:42,711:WARNING:A failed registeration attempt has occured.
+2021-01-18 00:58:54,625:WARNING:A failed registeration attempt has occured.
+2021-01-18 00:59:02,759:WARNING:A failed registeration attempt has occured.
+2021-01-18 00:59:11,625:INFO:An account has been created with username: Josh
+2021-01-18 00:59:19,698:INFO:Josh just logged in
+2021-01-18 00:59:28,916:INFO:Josh liked a post
+2021-01-18 00:59:35,109:INFO:Josh followed a blog named Pyhsics
+2021-01-18 00:59:46,370:INFO:Josh created a new blog with name Sports
+2021-01-18 01:00:11,494:INFO:Josh posted to blog named Sports
+2021-01-18 01:00:25,957:INFO:Josh followed a blog named Science
+2021-01-18 01:00:28,021:INFO:Josh liked a post
+2021-01-18 01:00:39,357:INFO:Josh logged out.
+2021-01-18 01:00:43,546:INFO:test just logged in
+2021-01-18 01:00:52,489:INFO:test followed a blog named Sports
+2021-01-18 01:01:01,749:ERROR:test tried to access a non-existing post.
+2021-01-18 01:01:05,777:INFO:test liked a post
+2021-01-18 01:01:27,919:ERROR:test tried to update Josh's post
+2021-01-18 01:01:39,297:ERROR:test tried to update a non-existing post.
+2021-01-18 01:01:50,047:ERROR:test tried to update a non-existing post.
+2021-01-18 01:02:09,896:INFO:test created a new blog with name Music
+2021-01-18 01:02:36,760:INFO:test posted to blog named Music
+2021-01-18 01:02:41,397:INFO:test logged out.
+2021-01-18 01:02:51,133:INFO:Josh just logged in
+2021-01-18 01:03:52,609:CRITICAL:Josh tried to use follow route.
+2021-01-18 01:04:09,093:CRITICAL:Josh tried to use like route.
+2021-01-18 01:04:13,739:INFO:Josh liked a post
+2021-01-18 01:04:24,721:CRITICAL:Josh tried to use delete route.
+2021-01-18 01:04:28,562:INFO:Josh logged out.
+2021-01-18 01:04:34,819:WARNING:test failed to login.
+2021-01-18 01:04:34,820:WARNING:An attempt to login has failed .
+2021-01-18 01:04:38,847:INFO:test just logged in
+2021-01-18 01:07:10,908:WARNING:test failed to search for a blog.
+2021-01-18 01:07:34,707:INFO:test logged out.
+2021-01-18 01:07:42,096:INFO:Josh just logged in
+2021-01-18 01:07:48,986:WARNING:Josh failed to search for a blog.
+2021-01-18 01:08:00,606:WARNING:Josh failed to search for a blog.
+2021-01-18 01:08:28,666:INFO:Josh unliked a post
+2021-01-18 01:08:32,687:INFO:Josh unfollowed a blog named Pyhsics
+2021-01-18 01:09:30,692:ERROR:Josh tried to access a non-existing post.
+2021-01-18 01:09:34,418:INFO:Josh logged out.
+2021-01-18 01:10:07,349:INFO:Josh just logged in
+2021-01-18 01:10:21,254:INFO:Josh updated a post.
+2021-01-18 01:10:52,230:INFO:Josh created a new blog with name Typing
+2021-01-18 01:11:11,023:INFO:Josh posted to blog named Typing
+2021-01-18 01:11:25,897:INFO:Josh deleted a post.
+2021-01-18 01:11:33,761:INFO:Josh logged out.
+2021-01-18 01:11:57,551:WARNING:A failed registeration attempt has occured.
+2021-01-18 01:12:12,727:INFO:An account has been created with username: Mark
+2021-01-18 01:12:29,547:WARNING:A failed registeration attempt has occured.
+2021-01-18 01:13:16,513:INFO:Mark just logged in
+2021-01-18 01:13:35,300:INFO:Mark created a new blog with name Olympics
+2021-01-18 01:13:56,961:INFO:Mark posted to blog named Olympics
+2021-01-18 01:14:02,289:INFO:Mark liked a post
+2021-01-18 01:14:04,708:INFO:Mark followed a blog named Music
+2021-01-18 01:14:05,324:INFO:Mark followed a blog named Sports
+2021-01-18 01:14:05,972:INFO:Mark followed a blog named Pyhsics
+2021-01-18 01:14:06,741:INFO:Mark followed a blog named Science
+2021-01-18 01:14:15,682:ERROR:Mark tried to update a non-existing post.
+2021-01-18 01:14:21,273:ERROR:Mark tried to update test's post
+2021-01-18 01:14:28,843:INFO:Mark logged out.

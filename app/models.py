@@ -46,7 +46,7 @@ class Posts(db.Model):
     title = db.Column(db.String(500))
     body= db.Column(db.String(2000))
     author = db.Column(db.String(20))
-    image_name=db.Column(db.String(100))
+    image_name=db.Column(db.String(200))
     blog_id=db.Column(db.Integer,db.ForeignKey('blog.id'))
     
    
