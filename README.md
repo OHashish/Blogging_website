@@ -1,2 +1,2 @@
-Description can be found in Web_description.pdf
+Description can be found in Web_description.pdf or download it throught following link:
 [Web_Description.pdf](https://github.com/OHashish/Blogging_website/files/8688218/Web_Description.pdf)
